@@ -1,0 +1,37 @@
+<style>
+@media(max-width:500px){
+  #div{
+    font-size:20px;
+    color:brown;
+  }
+}  
+@media(min-width:600px){
+  #div{
+    font-size:50px;
+    color:brown;
+  }
+}  
+</style>
+<div id="div" onclick="bday()">
+Tap to know how many days it remains to Mummy's birthday</div><script>function bday(){
+  let present= new Date();
+let now= Date.now()
+let deadline= Date.parse("09/27/2022")
+let diff=deadline-now
+let di=diff/1000
+let days= Math.floor(di/86400)
+let s=(di%86400)/3600;
+let hours=Math.floor(s);
+let ss=(di%86400)%3600;
+let minutes= Math.floor(ss/60)
+let seconds=  Math.floor(ss%60)
+
+let m=document.querySelector("#div")
+let b=document.getElementsByTagName("body").item(0)
+m.innerText=`It remains ${days} days ${hours} hours ${minutes} minutes and ${seconds}seconds to Mummy's birthday.`
+
+m.style.fontWeight=500
+b.style.background="linear-gradient(45deg,cyan,white)"
+//2,937,764 seconds
+}
+</script>
