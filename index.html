@@ -16,7 +16,8 @@
 Tap to know how many days it remains to Mummy's birthday</div><script>function bday(){
   let present= new Date();
 let now= Date.now()
-let deadline= Date.parse("09/27/2022")
+let yr= 2022
+let deadline= Date.parse(`09/27/2022`)
 let diff=deadline-now
 let di=diff/1000
 let days= Math.floor(di/86400)
@@ -33,6 +34,10 @@ m.innerText=`It remains ${days} days ${hours} hours ${minutes} minutes and ${sec
 m.style.fontWeight=500
 b.style.background="linear-gradient(45deg,cyan,white)"
 //2,937,764 seconds
+if(days<=0 &&hours<=0 && minutes<=0 && seconds<=0){
+  m.innerText="HAPPY BIRTHDAY MUMMY!!!!!!"
+ 
+}
 }
 document.getElementById("div").addEventListener("click",
 function(){
