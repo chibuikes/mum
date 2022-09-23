@@ -12,7 +12,7 @@
   }
 }  
 </style>
-<div id="div" onclick="bday()">
+<div id="div">
 Tap to know how many days it remains to Mummy's birthday</div><script>function bday(){
   let present= new Date();
 let now= Date.now()
@@ -34,4 +34,8 @@ m.style.fontWeight=500
 b.style.background="linear-gradient(45deg,cyan,white)"
 //2,937,764 seconds
 }
+document.getElementById("div").addEventListener("click",
+function(){
+setInterval(bday,2)}
+)
 </script>
