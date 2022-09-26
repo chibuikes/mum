@@ -1,4 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
 <style>
+@media(max-width:500px){
+  #div{
+    font-size:20px;
+    color:brown;
+  }
+  th {
+      font-size:20px;
+    padding: 0px;
+    color: green;
+    border: 0px solid green;
+
+  }
+    td{
+      font-size:50px;
+      padding: 0px;
+      color: green;
+      border: 0px solid green;
+      margin:-26665px;
+  
+    }
+  .con{
+    display:none;
+  }
+  #timer{
+    color:green;
+    font-weight: 100;
+    font-size: 70px;
+    display: none;
+
+  }
+  img{
+    width:30%;
+    height:30%;
+    position :relative;
+    
+    top:20px;
+  }
+  .cla{
+
+    border-radius:0%;
+  }
+  .cle{
+    width:90%;
+height:600px ;
+    animation-name: mum;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes mum{
+    0%{
+      transform:rotate(0deg);
+      
+    }
+    10%{
+      transform:rotate(10deg);
+    }
+    20%{
+      transform:rotate(-10deg);
+    }
+    30%{
+      transform:rotate(5deg);
+    }
+    40%{
+      transform:rotate(-6deg);
+    }
+    50%{
+      transform:rotate(3deg);
+    }
+    60%{
+      transform:rotate(-3deg);
+    }
+    70%{
+      transform:rotate(2deg);
+    }
+    80%{
+      transform:rotate(-2deg);
+    }
+    90%{
+      transform:rotate(1deg);
+    }
+    95%{
+      transform:rotate(-10deg);
+    }
+    100%{
+      transform:rotate(0deg);
+    }
+  }
+  
+  .class{
+    animation-name: mumm;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes mumm{
+0%{
+    background:red;
+  }
+  140%{
+    background:orange;
+  }
+  28%{
+    background:yellow;
+  }
+  42%{
+    background:green;
+  }
+  56%{
+    background:blue;
+  }
+  70%{
+    background:indigo;
+  }
+  84%{
+    background:violet;
+  }
+  }
+}  
+@media(min-width:600px){
+  #div{
+    font-size:50px;
+    color:brown;
+  }
+}  
+</style>
+</head>
+
+<body>
+
+<div id="div">
+Tap to know how many days it remains to Mummy's birthday</div>
+<div id="timer"></div>
+<!--
+<div class="con">
+  
+  
+<div class="sp"></div>
+<div class="sp"></div>
+<div class="sp"></div>
+<div class="sp"></div>
+
+</div>-->
+<table class="con">
+  <tr>
+    <th>DAYS</th>
+    <th>HOURS</th>
+    <th>MINS</th>
+    <th>SECS</th>
+  </tr>
+  <tr id="one">
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  </tr>
+</table>
+<img>
+<img>
+<script>
+document.getElementById("div").addEventListener("click",
+function(){
+setInterval(()=>{
+  let present = new Date();
+  let now = Date.now()
+  let deadline = Date.parse("09/27/2022")
+  let diff = deadline - now
+  let di = diff / 1000
+  let days =Math.floor(di / 86400)
+  let s = (di % 86400) / 3600;
+  let hours = Math.floor(s);
+  let ss = (di % 86400) % 3600;
+  let minutes = Math.floor(ss / 60)
+  let seconds = Math.floor(ss % 60)
+  let  dayss=days
+  let hrs=hours
+  let mins=minutes;
+  let secs=seconds;
+  if (seconds 
+  < 10) {
+    seconds=`0`+seconds
+    
+  }
+  
+  
+  if(minutes < 10){
+    minutes=`0`+minutes
+      
+   
+   }
+  
+    if (hours < 10) {
+      hours=`0`+hours
+      
+      
+    }
+      let m = document.querySelector("#div")
+      let b = document.getElementsByTagName("body").item(0)
+    m.innerText = ""
+    //`It remains ${days} days ${hours} hours ${minutes} minutes and ${seconds}seconds to Mummy's birthday.`
+  
+      m.style.fontWeight = 500
+      b.style.background = "linear-gradient(45deg,cyan,white)"
+      
+    
+    document.querySelector("table").style.display="block"
+let td=document.querySelectorAll("td")  
+td.item(0).innerText=`${days} :`
+td.item(1).innerText=
+`${hours} :`
+td.item(2).innerText=`${minutes} :`
+td.item(3).innerText=`${seconds}`
+  
+  
+  let timer = document.getElementById("timer")
+  timer.innerText = `${days}:${hours}:${minutes}:${seconds}` //2,937,764 seconds
+  if (dayss <= 0 && hrs <=0&& mins <= 0&& secs <= 0) {
+    clearInterval()
+    m.innerText = "HAPPY BIRTHDAY MUMMY!!!!!!"
+    m.style.color="white"
+      b.style.background="#00ccff"
+    document.querySelector("body").classList.add("class")
+    let img =document.getElementsByTagName("img")
+    img.item(0).setAttribute("src","mum2.jpg")
+    img.item(0).setAttribute("class","cla")
+    img.item(0).setAttribute("class","cle")
+/*  
+  img.item(1).setAttribute("src","mum2.jpg")
+    img.item(1).setAttribute("class","cla")
+  */
+  }
+},2)}
+)
+</script>
+</body>
+
+</html>
+<!--
+<style>
+  img{
+    width:30%;
+    height:30%;
+    position :relative;
+    left:100px;
+    top:200px;
+  }
+  .cla{
+    animation-name: mum;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes mum{
+    0%{
+      transform:rotate(0deg);
+      
+    }
+    10%{
+      transform:rotate(40deg);
+    }
+    20%{
+      transform:rotate(-40deg);
+    }
+    30%{
+      transform:rotate(35deg);
+    }
+    40%{
+      transform:rotate(-36deg);
+    }
+    50%{
+      transform:rotate(30deg);
+    }
+    60%{
+      transform:rotate(-30deg);
+    }
+    70%{
+      transform:rotate(20deg);
+    }
+    80%{
+      transform:rotate(-20deg);
+    }
+    90%{
+      transform:rotate(10deg);
+    }
+    95%{
+      transform:rotate(-10deg);
+    }
+    100%{
+      transform:rotate(0deg);
+    }
+  }
+  
+  .class{
+    animation-name: mumm;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes mumm{
+0%{
+    background:red;
+  }
+  140%{
+    background:orange;
+  }
+  28%{
+    background:yellow;
+  }
+  42%{
+    background:green;
+  }
+  56%{
+    background:blue;
+  }
+  70%{
+    background:indigo;
+  }
+  84%{
+    background:violet;
+  }
+  }
+</style>
+<body class="class">
+  
+<img src="mum1.jpg" alt="hfhhd" class="cla">
+<img src="mum2.jpg" alt="hfhhd" class="cla">
+
+</body>
+<!--<style>
 @media(max-width:500px){
   #div{
     font-size:20px;
