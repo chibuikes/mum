@@ -148,6 +148,7 @@ Tap to know how many days it remains to Mummy's birthday</div>
 <div class="sp"></div>
 
 </div>-->
+
 <table class="con">
   <tr>
     <th>DAYS</th>
@@ -210,7 +211,7 @@ setInterval(()=>{
       b.style.background = "linear-gradient(45deg,cyan,white)"
       
     
-    document.querySelector("table").style.display="block"
+    document.querySelector("table").style.display="none"
 let td=document.querySelectorAll("td")  
 td.item(0).innerText=`${days} :`
 td.item(1).innerText=
@@ -222,6 +223,11 @@ td.item(3).innerText=`${seconds}`
   let timer = document.getElementById("timer")
   timer.innerText = `${days}:${hours}:${minutes}:${seconds}` //2,937,764 seconds
   if (dayss <= 0 && hrs <=0&& mins <= 0&& secs <= 0) {
+    seconds=00
+    minutes=00
+    hours=00
+    days=0
+    document.querySelector("tr").style.display-"none"
     clearInterval()
     m.innerText = "HAPPY BIRTHDAY MUMMY!!!!!!"
     m.style.color="white"
